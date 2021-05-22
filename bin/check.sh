@@ -216,17 +216,17 @@ function MediaUnlockTest_AbemaTV_IPTest() {
 }
 
 function MediaUnlockTest_PCRJP() {
-    echo -n -e " Cygame プリンセスコネクト！Re:Dive Japan:\t->\c";
+    echo -n -e " Cygame プリンセスコネクト！Re:Dive:\t->\c";
     # 测试，连续请求两次 (单独请求一次可能会返回35, 第二次开始变成0)
     local result=`curl --user-agent "${UA_Dalvik}" -${1} -fsL --write-out %{http_code} --output /dev/null --max-time 30 https://api-priconne-redive.cygames.jp/`;
     if [ "$result" = "000" ]; then
-        echo -n -e "\r Cygame プリンセスコネクト！Re:Dive Japan:\t${Font_Red}Failed (Network Connection)${Font_Suffix}\n" && echo -e " Cygame プリンセスコネクト！Re:Dive Japan:\tFailed (Network Connection)" >> ${LOG_FILE};
+        echo -n -e "\r Cygame プリンセスコネクト！Re:Dive:\t${Font_Red}Failed (Network Connection)${Font_Suffix}\n" && echo -e " Cygame プリンセスコネクト！Re:Dive:\tFailed (Network Connection)" >> ${LOG_FILE};
         elif [ "$result" = "404" ]; then
-        echo -n -e "\r Cygame プリンセスコネクト！Re:Dive Japan:\t${Font_Green}Yes${Font_Suffix}\n" && echo -e " Cygame プリンセスコネクト！Re:Dive Japan:\tYes" >> ${LOG_FILE};
+        echo -n -e "\r Cygame プリンセスコネクト！Re:Dive:\t${Font_Green}Yes${Font_Suffix}\n" && echo -e " Cygame プリンセスコネクト！Re:Dive:\tYes" >> ${LOG_FILE};
         elif [ "$result" = "403" ]; then
-        echo -n -e "\r Cygame プリンセスコネクト！Re:Dive Japan:\t${Font_Red}No${Font_Suffix}\n" && echo -e " Cygame プリンセスコネクト！Re:Dive Japan:\tNo" >> ${LOG_FILE};
+        echo -n -e "\r Cygame プリンセスコネクト！Re:Dive:\t${Font_Red}No${Font_Suffix}\n" && echo -e " Cygame プリンセスコネクト！Re:Dive:\tNo" >> ${LOG_FILE};
     else
-        echo -n -e "\r Cygame プリンセスコネクト！Re:Dive Japan:\t${Font_Red}Failed (Unexpected Result: $result)${Font_Suffix}\n" && echo -e " Cygame プリンセスコネクト！Re:Dive Japan:\tFailed (Unexpected Result: $result)" >> ${LOG_FILE};
+        echo -n -e "\r Cygame プリンセスコネクト！Re:Dive:\t${Font_Red}Failed (Unexpected Result: $result)${Font_Suffix}\n" && echo -e " Cygame プリンセスコネクト！Re:Dive:\tFailed (Unexpected Result: $result)" >> ${LOG_FILE};
     fi
 }
 
