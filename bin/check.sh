@@ -152,7 +152,7 @@ function MediaUnlockTest_AbemaTV_IPTest() {
 function MediaUnlockTest_PCRTW() {
     echo -n -e " So-net プリンセスコネクト！Re:Dive:\t->\c";
     # 测试，连续请求两次 (单独请求一次可能会返回35, 第二次开始变成0)
-    local result=`curl --user-agent "${UA_Dalvik}" -${1} -fsL --write-out %{http_code} --output /dev/null --max-time 30 https://api-priconne-redive.cygames.jp/`;
+    local result=`curl --user-agent "${UA_Dalvik}" -${1} -fsL --write-out %{http_code} --output /dev/null --max-time 30 https://api-pc.so-net.tw/`;
     if [ "$result" = "000" ]; then
         echo -n -e "\r So-net プリンセスコネクト！Re:Dive:\t${Font_Red}Failed (Network Connection)${Font_Suffix}\n"
         elif [ "$result" = "404" ]; then
